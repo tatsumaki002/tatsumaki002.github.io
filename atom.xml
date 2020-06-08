@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tatsumaki.cn/"/>
-  <updated>2020-06-08T15:58:55.130Z</updated>
+  <updated>2020-06-08T16:16:03.665Z</updated>
   <id>https://tatsumaki.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://tatsumaki.cn/2020/06/08/awvs/"/>
     <id>https://tatsumaki.cn/2020/06/08/awvs/</id>
     <published>2020-06-08T15:51:17.000Z</published>
-    <updated>2020-06-08T15:58:55.130Z</updated>
+    <updated>2020-06-08T16:16:03.665Z</updated>
     
     <summary type="html">
     
@@ -30,10 +30,10 @@
         
         
           &lt;p&gt;##前言&lt;/p&gt;
-&lt;p&gt;最近HW要开始了，扫描器也得跟上。AWVS用的还是11，觉得不太好用，看到13似乎还不错，就找了资源下载安装。&lt;/p&gt;
+&lt;p&gt;最近HW要开始了，扫描器也得跟上。AWVS用的还是11，觉得不太好用，看到13似乎还不错，就在网上找了资源下载安装。记录一下安装过程。&lt;/p&gt;
+&lt;p&gt;##删除已安装的AWVS&lt;/p&gt;
 &lt;p&gt;首先需要删除原本装的awvs。&lt;/p&gt;
-&lt;p&gt;对于windwos系统而言，可以直接安装，覆盖安装即可。&lt;/p&gt;
-&lt;p&gt;对于使
+&lt;p&gt;对于windw
         
       
     
