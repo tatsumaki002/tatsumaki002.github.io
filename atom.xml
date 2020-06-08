@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tatsumaki.cn/"/>
-  <updated>2020-06-07T09:42:39.061Z</updated>
+  <updated>2020-06-08T15:58:55.130Z</updated>
   <id>https://tatsumaki.cn/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>awvs13安装教程（windows、linux）</title>
+    <link href="https://tatsumaki.cn/2020/06/08/awvs/"/>
+    <id>https://tatsumaki.cn/2020/06/08/awvs/</id>
+    <published>2020-06-08T15:51:17.000Z</published>
+    <updated>2020-06-08T15:58:55.130Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;##前言&lt;/p&gt;
+&lt;p&gt;最近HW要开始了，扫描器也得跟上。AWVS用的还是11，觉得不太好用，看到13似乎还不错，就找了资源下载安装。&lt;/p&gt;
+&lt;p&gt;首先需要删除原本装的awvs。&lt;/p&gt;
+&lt;p&gt;对于windwos系统而言，可以直接安装，覆盖安装即可。&lt;/p&gt;
+&lt;p&gt;对于使
+        
+      
+    
+    </summary>
+    
+      <category term="安装教程" scheme="https://tatsumaki.cn/categories/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    
+    
+      <category term="awvs13" scheme="https://tatsumaki.cn/tags/awvs13/"/>
+    
+      <category term="安装教程" scheme="https://tatsumaki.cn/tags/%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
   
   <entry>
     <title>IIS漏洞PUT任意文件上传复现</title>

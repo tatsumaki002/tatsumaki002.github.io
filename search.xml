@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>awvs13安装教程（windows、linux）</title>
+      <link href="/2020/06/08/awvs/"/>
+      <url>/2020/06/08/awvs/</url>
+      
+        <content type="html"><![CDATA[<p>##前言</p><p>最近HW要开始了，扫描器也得跟上。AWVS用的还是11，觉得不太好用，看到13似乎还不错，就找了资源下载安装。</p><p>首先需要删除原本装的awvs。</p><p>对于windwos系统而言，可以直接安装，覆盖安装即可。</p><p>对于使用linux系统的，则需要先删除home文件下的awvs相关文件夹。</p><p>一般是如下命令：</p><blockquote><p>rm -rf /home/acunetix/ //使用tab补全即可</p></blockquote><p>接着删除awvs建立的用户，打开/etc/passwd，找到acunetix，删除即可。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 安装教程 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> awvs13 </tag>
+            
+            <tag> 安装教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>IIS漏洞PUT任意文件上传复现</title>
       <link href="/2020/06/07/sort-algorithms/"/>
       <url>/2020/06/07/sort-algorithms/</url>
