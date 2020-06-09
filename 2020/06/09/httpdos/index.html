@@ -4,13 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="IIS漏洞PUT任意文件上传复现, CTF write up 随笔 渗透测试">
+    <meta name="keywords" content="HTTP缓慢DOS攻击漏洞验证, CTF write up 随笔 渗透测试">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="前言因为懒得搭环境，所以直接用了墨者学院的靶场。
-产生PUT任意文件上传的原因在于使用IIS开启了webDAV。问题来了，什么是webDVA？
-简单来说，webDAV是基于HTTP 1.1的通信协议，使得在除了GET、POST、HEAD这几">
+    <meta name="description" content="##前言
+漏洞扫描器中，经常会出现一个HTTP缓慢DOS攻击的漏洞。之前不知该如何验证，也考虑到DOS攻击会使服务器受到影响，一直没有尝试验证。今天学习了一下，稍作记录。
+##什么是缓慢DOS攻击
+首先一个点，并非所有的DOS攻击都是以大流">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +19,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>IIS漏洞PUT任意文件上传复现 | Tatsumaki&#39;Blog</title>
+    <title>HTTP缓慢DOS攻击漏洞验证 | Tatsumaki&#39;Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -331,13 +332,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/27.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        IIS漏洞PUT任意文件上传复现
+                        HTTP缓慢DOS攻击漏洞验证
                     </div>
                 </div>
             </div>
@@ -448,16 +449,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/墨者靶场WP/" target="_blank">
-                            <span class="chip bg-color">墨者靶场WP</span>
+                        <a href="/tags/漏洞验证/" target="_blank">
+                            <span class="chip bg-color">漏洞验证</span>
                         </a>
                         
-                        <a href="/tags/中间件漏洞/" target="_blank">
-                            <span class="chip bg-color">中间件漏洞</span>
-                        </a>
-                        
-                        <a href="/tags/漏洞复现/" target="_blank">
-                            <span class="chip bg-color">漏洞复现</span>
+                        <a href="/tags/DOS攻击/" target="_blank">
+                            <span class="chip bg-color">DOS攻击</span>
                         </a>
                         
                     </div>
@@ -468,8 +465,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/漏洞复现/" class="post-category" target="_blank">
-                            漏洞复现
+                        <a href="/categories/漏洞验证/" class="post-category" target="_blank">
+                            漏洞验证
                         </a>
                         
                     </div>
@@ -480,7 +477,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-07
+                    2020-06-09
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -494,7 +491,7 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    472
+                    394
                 </div>
                 
 
@@ -517,27 +514,30 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>因为懒得搭环境，所以直接用了墨者学院的靶场。</p>
-<p>产生PUT任意文件上传的原因在于使用IIS开启了webDAV。问题来了，什么是webDVA？</p>
-<p>简单来说，webDAV是基于HTTP 1.1的通信协议，使得在除了GET、POST、HEAD这几种常见的请求方式之外，还能使用像是PUT、MOVE、COPY这些方法。</p>
-<p>问题就出在了这里，一般的网站根本不需要用到这些多的请求，在开启webDAV、而且还选了可写入这个选项之后，就能造成任意文件上传（伪）。</p>
-<h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><blockquote>
-<p>中间件漏洞</p>
+                <p>##前言</p>
+<p>漏洞扫描器中，经常会出现一个HTTP缓慢DOS攻击的漏洞。之前不知该如何验证，也考虑到DOS攻击会使服务器受到影响，一直没有尝试验证。今天学习了一下，稍作记录。</p>
+<p>##什么是缓慢DOS攻击</p>
+<p>首先一个点，并非所有的DOS攻击都是以大流量进行攻击，而缓慢DOS攻击中的“慢”，自然相对于这些“快”。</p>
+<p>以我的理解，通俗些来说，就是攻击者向服务器发送多个并发TCP连接。</p>
+<p>服务器是在所有请求被完全接受后才会断开TCP连接，这些连接便以很低的速度发包。于是服务器资源被长期占用，无法处理其他正常用户的请求。自然就达成了DOS攻击的目的。</p>
+<p>且这种攻击模式相对廉价，只需一台普通PC即可，无需传统DOS攻击中需要结合肉鸡群做分布式DOS。</p>
+<p>##如何验证</p>
+<p>验证的话一般使用两种方式；</p>
+<blockquote>
+<p>使用nmap脚本</p>
 </blockquote>
-<p>理解差不多的原理之后，再看墨者的这个靶场，使用的是IIS6.0，直接使用OPTIONS方法。如果开启了webDAV的话，OPTIONS方法能够显示支持的请求。</p>
-<p><img src="1.png" alt="OPTIONS请求的回显"></p>
-<p>显然开启了webDAV，那么使用PUT方法上传一句话木马。IIS6.0默认可执行文件为asp，所以使用asp的一句话马。</p>
-<p>为什么说是任意文件上传（伪），因为上传的文件后缀名不能是asp，只能传txt这种。</p>
-<p><img src="2.png" alt="PUT上传文件"></p>
-<p>回显201，显示创造成功。</p>
-<p>但是因为是txt，无法利用。因此使用MOVE或者COPY，将文件移动成asp后缀脚本</p>
-<p>传asp传不上去（图没截），因为环境是IIS6.0，那就用IIS6.0的分号解析漏洞，上传;.txt</p>
-<p><img src="3.png" alt="利用解析漏洞生成可执行文件"></p>
-<p>这里似乎是墨者靶场的回显码有错误。</p>
-<p>如果是自己搭建环境的话，出现了回显207，需要勾选可执行脚本资源这个选项，就能正常利用了。</p>
-<p>访问/shell.asp;.txt，页面虽然空白但证实的确存在，用蚁剑连接，找到key。</p>
-<p><img src="4.png" alt="连接"></p>
-<p>至此复现完成，因能力有限，如果本文中有什么不对之处，烦请读者于评论区中指出错误，谢谢！</p>
+<p>可以使用nmap中的脚本对指定ip进行测试，代码如下：</p>
+<pre><code>nmap -T4 -n -Pn -p [port] -sV -s --script http-slowloris-check [ip]</code></pre><p>一般效果如图：</p>
+<p><img src="1.png" alt="nmap脚本测试"></p>
+<blockquote>
+<p>或者使用专门的大佬脚本工具</p>
+</blockquote>
+<p>kali里边可以直接安装：</p>
+<pre><code>apt-get install slowhttptest</code></pre><p>接着使用该脚本进行测试：</p>
+<pre><code>slowhttptest -c 5000 -u [hostname/ip]</code></pre><p>一般效果如图：</p>
+<p><img src="2.png" alt="脚本测试"></p>
+<p>##结语</p>
+<p>本次漏洞验证到此结束，若有不足之处，还望于评论区中指出，万分感谢！</p>
 
             </div>
             <hr />
@@ -572,9 +572,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《IIS漏洞PUT任意文件上传复现》
+                    《HTTP缓慢DOS攻击漏洞验证》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/06/07/sort-algorithms/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/06/09/httpdos/" property="cc:attributionName"
                rel="cc:attributionURL">
                 tatsumaki
             </a> 采用
@@ -615,7 +615,7 @@
         repo: 'tatsumaki002.github.io',
         owner: 'tatsumaki',
         admin: "tatsumaki",
-        id: '2020/06/07/sort-algorithms/',
+        id: '2020/06/09/httpdos/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -636,9 +636,63 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/06/09/httpdos/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="HTTP缓慢DOS攻击漏洞验证">
+                        
+                        <span class="card-title">HTTP缓慢DOS攻击漏洞验证</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            针对漏洞扫描器中，HTTP缓慢DOS攻击漏洞验证进行记录，供人参考。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-06-09
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/漏洞验证/" class="post-category" target="_blank">
+                                    漏洞验证
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/漏洞验证/" target="_blank">
+                        <span class="chip bg-color">漏洞验证</span>
+                    </a>
+                    
+                    <a href="/tags/DOS攻击/" target="_blank">
+                        <span class="chip bg-color">DOS攻击</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/06/08/awvs/">
                     <div class="card-image">
@@ -655,9 +709,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-06-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-06-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -679,63 +733,6 @@
                     
                     <a href="/tags/安装教程/" target="_blank">
                         <span class="chip bg-color">安装教程</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="fa fa-dot-circle-o"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/06/07/sort-algorithms/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="IIS漏洞PUT任意文件上传复现">
-                        
-                        <span class="card-title">IIS漏洞PUT任意文件上传复现</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            本文借助墨者靶场的在线环境，复现IIS通过PUT任意文件上传漏洞。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-06-07
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/漏洞复现/" class="post-category" target="_blank">
-                                    漏洞复现
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/墨者靶场WP/" target="_blank">
-                        <span class="chip bg-color">墨者靶场WP</span>
-                    </a>
-                    
-                    <a href="/tags/中间件漏洞/" target="_blank">
-                        <span class="chip bg-color">中间件漏洞</span>
-                    </a>
-                    
-                    <a href="/tags/漏洞复现/" target="_blank">
-                        <span class="chip bg-color">漏洞复现</span>
                     </a>
                     
                 </div>

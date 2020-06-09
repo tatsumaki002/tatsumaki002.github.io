@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>HTTP缓慢DOS攻击漏洞验证</title>
+      <link href="/2020/06/09/httpdos/"/>
+      <url>/2020/06/09/httpdos/</url>
+      
+        <content type="html"><![CDATA[<p>##前言</p><p>漏洞扫描器中，经常会出现一个HTTP缓慢DOS攻击的漏洞。之前不知该如何验证，也考虑到DOS攻击会使服务器受到影响，一直没有尝试验证。今天学习了一下，稍作记录。</p><p>##什么是缓慢DOS攻击</p><p>首先一个点，并非所有的DOS攻击都是以大流量进行攻击，而缓慢DOS攻击中的“慢”，自然相对于这些“快”。</p><p>以我的理解，通俗些来说，就是攻击者向服务器发送多个并发TCP连接。</p><p>服务器是在所有请求被完全接受后才会断开TCP连接，这些连接便以很低的速度发包。于是服务器资源被长期占用，无法处理其他正常用户的请求。自然就达成了DOS攻击的目的。</p><p>且这种攻击模式相对廉价，只需一台普通PC即可，无需传统DOS攻击中需要结合肉鸡群做分布式DOS。</p><p>##如何验证</p><p>验证的话一般使用两种方式；</p><blockquote><p>使用nmap脚本</p></blockquote><p>可以使用nmap中的脚本对指定ip进行测试，代码如下：</p><pre><code>nmap -T4 -n -Pn -p [port] -sV -s --script http-slowloris-check [ip]</code></pre><p>一般效果如图：</p><p><img src="1.png" alt="nmap脚本测试"></p><blockquote><p>或者使用专门的大佬脚本工具</p></blockquote><p>kali里边可以直接安装：</p><pre><code>apt-get install slowhttptest</code></pre><p>接着使用该脚本进行测试：</p><pre><code>slowhttptest -c 5000 -u [hostname/ip]</code></pre><p>一般效果如图：</p><p><img src="2.png" alt="脚本测试"></p><p>##结语</p><p>本次漏洞验证到此结束，若有不足之处，还望于评论区中指出，万分感谢！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞验证 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 漏洞验证 </tag>
+            
+            <tag> DOS攻击 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>windows、linux下awvs13安装教程（内附资源链接）</title>
       <link href="/2020/06/08/awvs/"/>
       <url>/2020/06/08/awvs/</url>

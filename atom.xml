@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tatsumaki.cn/"/>
-  <updated>2020-06-08T16:16:52.505Z</updated>
+  <updated>2020-06-09T16:10:12.394Z</updated>
   <id>https://tatsumaki.cn/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>HTTP缓慢DOS攻击漏洞验证</title>
+    <link href="https://tatsumaki.cn/2020/06/09/httpdos/"/>
+    <id>https://tatsumaki.cn/2020/06/09/httpdos/</id>
+    <published>2020-06-09T15:40:43.000Z</published>
+    <updated>2020-06-09T16:10:12.394Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;##前言&lt;/p&gt;
+&lt;p&gt;漏洞扫描器中，经常会出现一个HTTP缓慢DOS攻击的漏洞。之前不知该如何验证，也考虑到DOS攻击会使服务器受到影响，一直没有尝试验证。今天学习了一下，稍作记录。&lt;/p&gt;
+&lt;p&gt;##什么是缓慢DOS攻击&lt;/p&gt;
+&lt;p&gt;首先一个点，并非所有的DOS攻击都
+        
+      
+    
+    </summary>
+    
+      <category term="漏洞验证" scheme="https://tatsumaki.cn/categories/%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81/"/>
+    
+    
+      <category term="漏洞验证" scheme="https://tatsumaki.cn/tags/%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="DOS攻击" scheme="https://tatsumaki.cn/tags/DOS%E6%94%BB%E5%87%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>windows、linux下awvs13安装教程（内附资源链接）</title>
