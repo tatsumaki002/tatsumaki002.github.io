@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>jbossunseralize</title>
+      <link href="/2020/06/10/jbossunseralize/"/>
+      <url>/2020/06/10/jbossunseralize/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本来想要复现shiro的反序列化漏洞，实在是太困了，想睡觉……等到周末再进行复线吧。</p><p>这次选择了JBoss的反序列化漏洞，也算是中间件漏洞的一种，依然选择墨者的在线靶场。</p><p>话不多说，直接开始。</p><h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><p>进入靶场后，访问/invoker/readonly，回显500，证实漏洞确实存在</p><p><img src="1.png" alt="请求的回显"></p><p>这个时候需要用到工具了，可以直接用jboss反序列化漏洞利用工具。</p><p>这里偷个懒，在使用工具之后，检测接着可以直接执行cmd命令。</p><p><img src="2.png" alt="直接使用工具"></p><p>关键是要获取到key，key在根目录下，那直接使用cat读取就可以了。</p><p><img src="3.png" alt="直接获得key"></p><p>该漏洞还有其他利用方式，这个是最简单的，偷个懒，太困了……其他利用方式等周末了补充上来。</p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本次漏洞复现的心得：成功下载了jboss反序列化漏洞的利用工具呢……至于写shell什么的，之后再来吧。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 漏洞复现 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 墨者靶场WP </tag>
+            
+            <tag> 中间件漏洞 </tag>
+            
+            <tag> 漏洞复现 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTTP缓慢DOS攻击漏洞验证</title>
       <link href="/2020/06/09/httpdos/"/>
       <url>/2020/06/09/httpdos/</url>

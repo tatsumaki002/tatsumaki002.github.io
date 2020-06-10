@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tatsumaki.cn/2020/06/10/jbossunseralize/</loc>
+    
+    <lastmod>2020-06-10T15:43:09.399Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tatsumaki.cn/2020/06/09/httpdos/</loc>
     
     <lastmod>2020-06-09T16:19:43.127Z</lastmod>
@@ -51,14 +58,14 @@
   </url>
   
   <url>
-    <loc>https://tatsumaki.cn/categories/index.html</loc>
+    <loc>https://tatsumaki.cn/tags/index.html</loc>
     
     <lastmod>2020-04-04T11:43:42.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tatsumaki.cn/tags/index.html</loc>
+    <loc>https://tatsumaki.cn/categories/index.html</loc>
     
     <lastmod>2020-04-04T11:43:42.000Z</lastmod>
     

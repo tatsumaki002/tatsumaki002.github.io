@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tatsumaki.cn/"/>
-  <updated>2020-06-09T16:19:43.127Z</updated>
+  <updated>2020-06-10T15:43:09.399Z</updated>
   <id>https://tatsumaki.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jbossunseralize</title>
+    <link href="https://tatsumaki.cn/2020/06/10/jbossunseralize/"/>
+    <id>https://tatsumaki.cn/2020/06/10/jbossunseralize/</id>
+    <published>2020-06-10T15:15:21.000Z</published>
+    <updated>2020-06-10T15:43:09.399Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="漏洞复现" scheme="https://tatsumaki.cn/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+    
+      <category term="墨者靶场WP" scheme="https://tatsumaki.cn/tags/%E5%A2%A8%E8%80%85%E9%9D%B6%E5%9C%BAWP/"/>
+    
+      <category term="中间件漏洞" scheme="https://tatsumaki.cn/tags/%E4%B8%AD%E9%97%B4%E4%BB%B6%E6%BC%8F%E6%B4%9E/"/>
+    
+      <category term="漏洞复现" scheme="https://tatsumaki.cn/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>HTTP缓慢DOS攻击漏洞验证</title>
