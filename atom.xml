@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tatsumaki.cn/"/>
-  <updated>2020-06-10T15:43:09.399Z</updated>
+  <updated>2020-06-10T15:46:11.978Z</updated>
   <id>https://tatsumaki.cn/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>jbossunseralize</title>
+    <title>Jboss5.x/6.x反序列化漏洞复现</title>
     <link href="https://tatsumaki.cn/2020/06/10/jbossunseralize/"/>
     <id>https://tatsumaki.cn/2020/06/10/jbossunseralize/</id>
     <published>2020-06-10T15:15:21.000Z</published>
-    <updated>2020-06-10T15:43:09.399Z</updated>
+    <updated>2020-06-10T15:46:11.978Z</updated>
     
     <summary type="html">
     
