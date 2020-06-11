@@ -4,6 +4,27 @@
   
     
     <entry>
+      <title>CVE-2018-12613复现 PHPMyAdmin后台文件包含</title>
+      <link href="/2020/06/11/phpmyadmin1/"/>
+      <url>/2020/06/11/phpmyadmin1/</url>
+      
+        <content type="html"><![CDATA[<ul><li>漏洞复现</li></ul><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天依然有些累，最近很容易困乏。依然是一篇水文。</p><p>在墨者逛靶场的时候看到这个文件包含靶场，因为与PHPMyadmin相关，因此复现一波。</p><h2 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><p>漏洞原理涉及到PHP的代码部分出现问题，状态不好暂且跳过（不然怎么叫水文呢），直接进行复现。</p><h2 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h2><p>第一步，进入靶场。不出意外是一个PHPMyAdmin的管理页面，使用root/root弱口令登录到后台。</p><p>第二步，找到相应漏洞复现文章。</p><p>第三步，模仿复现文章进行复现。</p><p>根据题目背景可以知道是文件包含，如果是真实环境……首先得是PHP4.8.0和4.8.1版本，其次，得能登录到后台。</p><p>找到了相应的漏洞之后，按照复现文章进行复现。</p><p>直接快进到利用</p><p>首先在sql中执行语句，比如phpinfo</p><p><img src="1.png" alt="执行语句"></p><p>执行之后找到这个页面要包含的session文件名，在cookie里边可以找到</p><p><img src="2.png" alt="session文件名"></p><p>然后包含，index.php?target=db_sql.php%253f/../../../../../../../../tmp/tmp/sess_8q6a3sanco25u26716p3l1dtofs2r7lc</p><p>可以看到phpinfo包含成功</p><p><img src="3.png" alt="包含成功"></p><p>于是把写进去的语句换成一句话木马。</p><p>然后使用蚁剑连接……很生气，连接不上，浪费我睡觉时间。</p><p>凭借之前做的经验，知道flag在根目录下的key.txt里，爷直接文件包含读取。</p><p>index.php?target=db_sql.php%253f/../../../../../../../../key.txt</p><p><img src="4.png" alt="获取成功"></p><p>搞定睡觉！</p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>等之后有空了再来补其他的。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 墨者靶场WP </tag>
+            
+            <tag> 漏洞复现 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Jboss5.x/6.x反序列化漏洞复现</title>
       <link href="/2020/06/10/jbossunseralize/"/>
       <url>/2020/06/10/jbossunseralize/</url>
