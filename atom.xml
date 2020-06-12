@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tatsumaki.cn/"/>
-  <updated>2020-06-11T15:51:12.553Z</updated>
+  <updated>2020-06-12T15:56:54.028Z</updated>
   <id>https://tatsumaki.cn/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MISC题相关帮助工具</title>
+    <link href="https://tatsumaki.cn/2020/06/12/water/"/>
+    <id>https://tatsumaki.cn/2020/06/12/water/</id>
+    <published>2020-06-12T15:26:26.000Z</published>
+    <updated>2020-06-12T15:56:54.028Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="CTF" scheme="https://tatsumaki.cn/categories/CTF/"/>
+    
+    
+      <category term="CTF" scheme="https://tatsumaki.cn/tags/CTF/"/>
+    
+      <category term="MISC" scheme="https://tatsumaki.cn/tags/MISC/"/>
+    
+  </entry>
   
   <entry>
     <title>CVE-2018-12613复现 PHPMyAdmin后台文件包含</title>

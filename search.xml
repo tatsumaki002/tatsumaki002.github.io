@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>MISC题相关帮助工具</title>
+      <link href="/2020/06/12/water/"/>
+      <url>/2020/06/12/water/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本着水文（划掉）想要开启其他能力的心思，去做了CTF的MISC相关的题。</p><p>之前也有接触过MISC题型，大多题型涉及到crypto，不过比crypto简单多了就是。</p><h2 id="CTF"><a href="#CTF" class="headerlink" title="CTF"></a>CTF</h2><p>在历经了无数道签到题让我喜笑颜开之后，碰到了这个题目。</p><p><img src="1.png" alt="题目"></p><p>凭借着经验，一眼就看出这是一个凯撒密码的加密。然后就要对凯撒密码进行破解。</p><p>这里使用了米斯特安全团队的相关工具。</p><p><img src="2.png" alt="工具界面"></p><p>行了，找到了。</p><p><img src="3.png" alt="flag"></p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本篇水文主要就介绍了米斯特安全团队的这个工具，无了。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> CTF </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> CTF </tag>
+            
+            <tag> MISC </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>CVE-2018-12613复现 PHPMyAdmin后台文件包含</title>
       <link href="/2020/06/11/phpmyadmin1/"/>
       <url>/2020/06/11/phpmyadmin1/</url>
