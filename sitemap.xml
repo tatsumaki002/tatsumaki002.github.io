@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://tatsumaki.cn/2020/07/12/logic-re/</loc>
+    
+    <lastmod>2020-07-12T16:18:56.903Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://tatsumaki.cn/2020/06/12/water/</loc>
     
     <lastmod>2020-06-12T15:56:54.028Z</lastmod>
@@ -72,14 +79,14 @@
   </url>
   
   <url>
-    <loc>https://tatsumaki.cn/categories/index.html</loc>
+    <loc>https://tatsumaki.cn/archives/index.html</loc>
     
     <lastmod>2020-04-04T11:43:42.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://tatsumaki.cn/archives/index.html</loc>
+    <loc>https://tatsumaki.cn/categories/index.html</loc>
     
     <lastmod>2020-04-04T11:43:42.000Z</lastmod>
     

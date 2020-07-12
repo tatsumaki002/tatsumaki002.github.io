@@ -4,13 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="windows、linux下awvs13安装教程（内附资源链接）, CTF write up 随笔 渗透测试">
+    <meta name="keywords" content="逻辑漏洞——任意用户密码重置相关, CTF write up 随笔 渗透测试">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="前言最近HW要开始了，扫描器也得跟上。AWVS用的还是11，觉得不太好用，看到13似乎还不错，就在网上找了资源下载安装。记录一下安装过程。
-删除已安装的AWVS首先需要删除原本装的awvs。
-对于windwos系统而言，可以直接安装，覆盖安">
+    <meta name="description" content="前言个人以为，从逻辑漏洞开始挖掘SRC是一个不错的选择。早就在freebuf上将大佬文章收藏，等待之后阅读。
+结果这一等遥遥无期，为了治好拖延症，开始阅读大佬文章并进行技术笔记的整理、发布。
+一般来说，在挖src的时候，比较容易挖出来的是逻">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>windows、linux下awvs13安装教程（内附资源链接） | Tatsumaki&#39;Blog</title>
+    <title>逻辑漏洞——任意用户密码重置相关 | Tatsumaki&#39;Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -331,13 +331,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        windows、linux下awvs13安装教程（内附资源链接）
+                        逻辑漏洞——任意用户密码重置相关
                     </div>
                 </div>
             </div>
@@ -448,12 +448,16 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/awvs13/" target="_blank">
-                            <span class="chip bg-color">awvs13</span>
+                        <a href="/tags/逻辑漏洞/" target="_blank">
+                            <span class="chip bg-color">逻辑漏洞</span>
                         </a>
                         
-                        <a href="/tags/安装教程/" target="_blank">
-                            <span class="chip bg-color">安装教程</span>
+                        <a href="/tags/SRC挖掘/" target="_blank">
+                            <span class="chip bg-color">SRC挖掘</span>
+                        </a>
+                        
+                        <a href="/tags/技术笔记/" target="_blank">
+                            <span class="chip bg-color">技术笔记</span>
                         </a>
                         
                     </div>
@@ -464,8 +468,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/安装教程/" class="post-category" target="_blank">
-                            安装教程
+                        <a href="/categories/技术笔记/" class="post-category" target="_blank">
+                            技术笔记
                         </a>
                         
                     </div>
@@ -476,7 +480,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-08
+                    2020-07-12
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -490,14 +494,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    513
+                    2.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    8 分
                 </div>
                 
                 
@@ -513,34 +517,85 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近HW要开始了，扫描器也得跟上。AWVS用的还是11，觉得不太好用，看到13似乎还不错，就在网上找了资源下载安装。记录一下安装过程。</p>
-<h2 id="删除已安装的AWVS"><a href="#删除已安装的AWVS" class="headerlink" title="删除已安装的AWVS"></a>删除已安装的AWVS</h2><p>首先需要删除原本装的awvs。</p>
-<p>对于windwos系统而言，可以直接安装，覆盖安装即可。</p>
-<p>对于使用linux系统的，则需要先删除home文件下的awvs相关文件夹。</p>
-<p>一般是如下命令：</p>
-<pre><code>rm -rf /home/acunetix/ //使用tab补全即可
-</code></pre><p>接着删除awvs建立的用户，打开/etc/passwd，找到acunetix，删除即可。</p>
-<h2 id="安装awvs13"><a href="#安装awvs13" class="headerlink" title="安装awvs13"></a>安装awvs13</h2><p>这边先说成功安装的windows版本，首先一键安装，接着将wvsc.exe覆盖到“C:\Program Files (x86)\Acunetix\13.0.200205121\”</p>
-<p>将license_info.json覆盖到“C:\ProgramData\Acunetix\shared\license”即可完成破解。</p>
-<p>对于linux下的安装，进入解压后的目录。使用如下命令赋予文件执行权限：</p>
-<pre><code> chmod +x *
-</code></pre><p>使用”./acunetix(tab补全)”开始安装。</p>
-<p>这里会进入交互界面，按下Enter后是一长串的协议。可以一直按住回车键往下，也可以直接ctrl+c退出。</p>
-<p>然后输入yes，输入hostname。</p>
-<p>这里就是awvs打开的链接，一般使用127.0.0.1</p>
-<p>接着第二步，填写用来登录的账号和密码。</p>
-<p>填写完成后，开始安装。当安装完成后，使用如下命令进行破解。</p>
-<pre><code> cp -rf wvsc /home/acunetix/.acunetix/v_200217097/scanner/
-
- cp -rf license_info.json /home/acunetix/.acunetix/data/license/
-</code></pre><p>至此安装破解都完成了，但是我在linux下运行会出现问题，无法新建target。重新安装依然如此，迫于无奈下使用windows版本.</p>
-<p>如有大佬明白原因，还请不吝赐教！</p>
-<p>文章最后附上资源链接，希望大家支持正版（雾）！</p>
-<p>下载地址：</p>
-<p>windows：<a href="https://pan.baidu.com/s/1sPEIXi8XkEGlHhrfPm-KWQ" target="_blank" rel="noopener">https://pan.baidu.com/s/1sPEIXi8XkEGlHhrfPm-KWQ</a>   密码：menp</p>
-<p>Linux：<a href="https://pan.baidu.com/s/1DOlrsXKEsWeYBTx-y5RJlw" target="_blank" rel="noopener">https://pan.baidu.com/s/1DOlrsXKEsWeYBTx-y5RJlw</a> 密码：tv9z</p>
-<p>文章与资源采用均根据这位大佬文章而来：<a href="http://www.manongjc.com/detail/16-mfpdrwztekbjkso.html。" target="_blank" rel="noopener">http://www.manongjc.com/detail/16-mfpdrwztekbjkso.html。</a></p>
-<p>如有侵权，联系后删除。</p>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>个人以为，从逻辑漏洞开始挖掘SRC是一个不错的选择。早就在freebuf上将大佬文章收藏，等待之后阅读。</p>
+<p>结果这一等遥遥无期，为了治好拖延症，开始阅读大佬文章并进行技术笔记的整理、发布。</p>
+<p>一般来说，在挖src的时候，比较容易挖出来的是逻辑漏洞。逻辑漏洞也主要是看个人的思维合攻击面宽度。</p>
+<p>这里稍微整理了一些任意用户密码重置以及攻击账号常见手法，笔记来源于Freebuf大神的文章，在这是个人对文章的一些整理和理解，想查看原文可通过如下链接：</p>
+<p><a href="https://www.freebuf.com/articles/web/160883.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/160883.html</a></p>
+<h1 id="任意用户密码重置"><a href="#任意用户密码重置" class="headerlink" title="任意用户密码重置"></a>任意用户密码重置</h1><p>这个漏洞常出现的地方有：</p>
+<p>新用户注册界面、忘记密码界面、登录后重置密码界面</p>
+<h2 id="漏洞成因"><a href="#漏洞成因" class="headerlink" title="漏洞成因"></a>漏洞成因</h2><p>一般来说，密码找回逻辑含有用户名、用户ID、cookie；接收端：手机、邮箱；凭证：验证码、token、当前步骤这四步。</p>
+<p>四个要素没有完整关联的话，都可能产生任意密码重置漏洞。</p>
+<h2 id="验证码回显"><a href="#验证码回显" class="headerlink" title="验证码回显"></a>验证码回显</h2><p>在抓包发送的时候，验证码会回显到响应包中，再通过爆破用户名，就可以重置任意用户的密码。</p>
+<h2 id="邮件token的构造"><a href="#邮件token的构造" class="headerlink" title="邮件token的构造"></a>邮件token的构造</h2><p>邮件找回密码的时候，抓包可能会显示验证用的token信息。</p>
+<p>这里的验证方法可以抓包查看是否存在，然后对比发送到邮件的重置链接，查看是否存在关联。</p>
+<p>如果可以直接用的话，就可通过构造链接，重置任意账号的密码。</p>
+<h2 id="接收端会被篡改"><a href="#接收端会被篡改" class="headerlink" title="接收端会被篡改"></a>接收端会被篡改</h2><p>这里分两种情况：</p>
+<p>1）请求包包含参数。一个简单的例子，就是通过手机方式找回验证码。接着抓包，将手机号码修改为攻击者手机来获取验证码，之后正常操作。</p>
+<p>2）请求包通过后端绑定的号码进行验证。简而言之，在重置密码的时候是以目标账户进行重置。接着会进行身份验证，</p>
+<p>此时是通过账号绑定的号码进行验证，请求时将账号参数修改为攻击者参数，这样发送验证码的时候就会发送到攻击者账号所绑定的手机号上。</p>
+<p>总结：这两种攻击方式可绕过都是因为验证码与账户未绑定导致的。</p>
+<h2 id="Cookie混淆"><a href="#Cookie混淆" class="headerlink" title="Cookie混淆"></a>Cookie混淆</h2><p>建议看原文，下面评论有些问题和解答/</p>
+<p><a href="https://www.freebuf.com/articles/web/162152.html" target="_blank" rel="noopener">https://www.freebuf.com/articles/web/162152.html</a></p>
+<p>一般来说，在重置密码的时候，页面逻辑往往是-&gt;输入要重置的账号-&gt;验证身份-&gt;重置密码</p>
+<p>在重置密码这个页面，服务端该如何确认要重置的密码账户呢？</p>
+<p>如果是通过cookie中的值来确定的话，就有可能存在cookie混淆的问题。</p>
+<p>操作如下：</p>
+<p>按照正常流程，到最后输入新密码页面时，先不管。</p>
+<p>接着另开一个页面，输入想要重置的账号。到验证界面后，回到第一个页面，提交新密码上传。</p>
+<p>接着使用重置的账号和设置的密码可以登录页面，这就是cookie混淆</p>
+<h2 id="新密码提交时用户混淆"><a href="#新密码提交时用户混淆" class="headerlink" title="新密码提交时用户混淆"></a>新密码提交时用户混淆</h2><p>就是在提交新密码的时候，将用户名修改为其他人的用户名。</p>
+<p>这里有个拓展文章，是在freebuf上意外看到的。</p>
+<p><a href="https://www.freebuf.com/vuls/239483.html" target="_blank" rel="noopener">https://www.freebuf.com/vuls/239483.html</a></p>
+<p>我的理解是，这个漏洞也是接收端的篡改。重置密码请求时，将用户名（对应这儿的手机号）替换成其他用户名（手机号），进行修改。</p>
+<p>不同点在于，这里的请求是经过了加密的。</p>
+<p>我认为此处作者能挖出洞关键在于：首先通过经验判断出了是RSA加密，且在源代码中多个js脚本含有“RSA”名称，于是联想到这是客户端加密。</p>
+<p>通过前台调用rsa函数方法，可以直接指定账号进行加密，然后提交修改过的用户名，成功重置密码。</p>
+<p>阅读的时候有这么一个问题：为什么不直接拿其他账号用户名加密后的参数替换呢？</p>
+<p>且在原文中作者也尝试过，但是失败了。</p>
+<p>查阅资料后发现，RSA加密，虽然加密函数是一样的，但是某些填充值不一定相同。</p>
+<p>比如以会话参数作填充值的话，每次刷新页面，加密串都不一样，也就导致了不能直接拿来利用。</p>
+<h2 id="篡改带token的重置链接中的用户名"><a href="#篡改带token的重置链接中的用户名" class="headerlink" title="篡改带token的重置链接中的用户名"></a>篡改带token的重置链接中的用户名</h2><p>在带token的重置链接中可能出现用户名id（可能经过加密等一系列措施），然后对用户名id进行修改，就可以重置任意其他用户。</p>
+<p>在本篇文章中，出现了一个REST风格。</p>
+<p>经过查阅资料后，REST风格大致是/user/100这种类型，其中100是user的id。</p>
+<p>这里存在一个拓展，REST风格下的几个安全问题。</p>
+<p>参考原文：<a href="https://blog.csdn.net/jackyrongvip/article/details/84834058" target="_blank" rel="noopener">https://blog.csdn.net/jackyrongvip/article/details/84834058</a></p>
+<p>REST风格常见的安全漏洞：<br>1）REST第一个典型的安全漏洞，就是对用户ID没有校验，使得可以通过遍历ID查看到其他用户的信息。</p>
+<p>一般来说，只出现一个资源的时候都已经做了安全防御。但是出现多个资源的时候就不一定了。</p>
+<p>比如订单链接，/user/100/orders/1，对1进行遍历，说不定可以查看所有订单，甚至进行操作。</p>
+<p>2）这个文章说的是HTTP安全响应，以及他们对应的一些功能。</p>
+<p>X-Frame-Options：防点击劫持，其中deny告诉浏览器，不要将当前响应内容在html frame中显示出来。</p>
+<p>3）REST会推断响应的内容是不是脚本，且不会管content-type类型，如果推断出是脚本的话，那就会直接按照脚本来执行。</p>
+<p>修复建议：添加X-Content-Type-Options可以使其严格按照content-type中的类型来执行格式。</p>
+<p>4）信息泄露</p>
+<p>前后端分离的时候，会以json作为传输数据的载体，有时候json会返回多余信息，造成信息泄露。</p>
+<p>5）可能会存在短信轰炸</p>
+<h2 id="验证码未校验"><a href="#验证码未校验" class="headerlink" title="验证码未校验"></a>验证码未校验</h2><p>验证码说得比较笼统，根据找回密码的验证大致可以分为两类。一类是验证码，另一类就是密保问题。</p>
+<p>第一种场景应用方式：带token的链接服务端未进行验证。简单地说，就是验证的key完全没有效果，任意输都行。</p>
+<p>第二种场景：对所有的用户名进行遍历，里边一般会有三种情况：存在且设置了密保的，存在但没设置密保，没这个用户。</p>
+<p>可以爆破出用户名出来，然后对未设置密保的用户进行密码重置。</p>
+<h2 id="验证码爆破"><a href="#验证码爆破" class="headerlink" title="验证码爆破"></a>验证码爆破</h2><p>顾名思义，当验证码长度不算长的时候，而且没限制高频登录的话，就可以进行爆破。</p>
+<p>这里可以使用burp的进阶工具turbo intruder，相关文章介绍链接在这：</p>
+<p><a href="https://www.secpulse.com/archives/126527.html" target="_blank" rel="noopener">https://www.secpulse.com/archives/126527.html</a></p>
+<p>具体的会新开一篇进行记录。</p>
+<p>顺带，在爆破中如果ip受限的话，有几个方法可以解决：伪造ip、使用代理池。</p>
+<p>伪造IP的话，根据网站服务端验证客户端IP首部的方式，可以用burp自动生成。</p>
+<p>比如，在请求首部添加：X-Forwarded-For：128.64.$32$.$22$,最后两个字段设置成了枚举变量，就有了整个B段的随机IP。</p>
+<p>至于代理池的话，可以使用免费的代理池服务，用脚本调用curl发起http请求，设置–proxy参数指定代理ip</p>
+<h2 id="更改应答值"><a href="#更改应答值" class="headerlink" title="更改应答值"></a>更改应答值</h2><p>有的时候，服务器校验了验证码正确之后，会将结果状态值下发客户端，后续的步骤则依靠前端js判断是否可进入第三步。</p>
+<p>这个时候，修改应答包的状态值，就可以进入重置密码界面。</p>
+<h2 id="token可预测"><a href="#token可预测" class="headerlink" title="token可预测"></a>token可预测</h2><p>通过邮箱找回密码的时候，邮件中一般会附带一个含有token的重置url。</p>
+<p>这个token就是重置凭证。只不过开发人员习惯以时间戳、递增序号、关键字段作为部分，采用某种加密算法或编码生成。</p>
+<p>要预测这个token，就可以基于收集到的账号等关键信息，用常见的加密算法计算一遍，就能判断是否可以预测token了。</p>
+<p>作者用了两个案例，其中第一个案例是一道CTF赛题，解题思路如下：</p>
+<p>重置链接中存在一个key，这个key显然就是重置token。对其进行md5解密得到一串时间戳明文。</p>
+<p>那么攻击方式如下：</p>
+<p>攻击者账户重置，得到url时间戳-&gt;攻击者重置admin，无法得到时间戳-&gt;攻击者再此重置自身账户，得到重置时间戳。</p>
+<p>那么admin对应的时间戳就在这两个时间戳区间，对其进行爆破即可。</p>
+<p>第二个案例：基于递增序号的token</p>
+<p>这个就是token会按照一定规律递增，对重置邮件的token多关注比较即可。</p>
+<p>第三个案例：所举的案例都是token经过MD5加密而成。比如MD5（手机号+验证码），token根据关键字段组合加密而成。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>以上就是大佬文章中对于任意用户密码重置这个逻辑漏洞的总结以及自身的一些记录。总的来说，逻辑漏洞多种多样，还是需要不断的积累与视角的开阔还有长期的练习。对常见的加密形式也应有了解，DES\AES\RSA\MD5等等……</p>
 
             </div>
             <hr />
@@ -575,9 +630,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《windows、linux下awvs13安装教程（内附资源链接）》
+                    《逻辑漏洞——任意用户密码重置相关》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/06/08/awvs/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/07/12/logic-re/" property="cc:attributionName"
                rel="cc:attributionURL">
                 tatsumaki
             </a> 采用
@@ -618,7 +673,7 @@
         repo: 'tatsumaki002.github.io',
         owner: 'tatsumaki',
         admin: "tatsumaki",
-        id: '2020/06/08/awvs/',
+        id: '2020/07/12/logic-re/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -639,49 +694,56 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/06/09/httpdos/">
+                <a href="/2020/07/12/logic-re/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="HTTP缓慢DOS攻击漏洞验证">
                         
-                        <span class="card-title">HTTP缓慢DOS攻击漏洞验证</span>
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="逻辑漏洞——任意用户密码重置相关">
+                        
+                        <span class="card-title">逻辑漏洞——任意用户密码重置相关</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            针对漏洞扫描器中，HTTP缓慢DOS攻击漏洞验证进行记录，供人参考。
+                            从freebuf大佬文章中自个儿记录下来的笔记
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-06-09
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-07-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/漏洞验证/" class="post-category" target="_blank">
-                                    漏洞验证
+                            <a href="/categories/技术笔记/" class="post-category" target="_blank">
+                                    技术笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/漏洞验证/" target="_blank">
-                        <span class="chip bg-color">漏洞验证</span>
+                    <a href="/tags/逻辑漏洞/" target="_blank">
+                        <span class="chip bg-color">逻辑漏洞</span>
                     </a>
                     
-                    <a href="/tags/DOS攻击/" target="_blank">
-                        <span class="chip bg-color">DOS攻击</span>
+                    <a href="/tags/SRC挖掘/" target="_blank">
+                        <span class="chip bg-color">SRC挖掘</span>
+                    </a>
+                    
+                    <a href="/tags/技术笔记/" target="_blank">
+                        <span class="chip bg-color">技术笔记</span>
                     </a>
                     
                 </div>
@@ -695,30 +757,31 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/07/sort-algorithms/">
+                <a href="/2020/06/12/water/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="IIS漏洞PUT任意文件上传复现">
                         
-                        <span class="card-title">IIS漏洞PUT任意文件上传复现</span>
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="MISC题相关帮助工具">
+                        
+                        <span class="card-title">MISC题相关帮助工具</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            本文借助墨者靶场的在线环境，复现IIS通过PUT任意文件上传漏洞。
+                            做了一些MISC题型，其实主要是介绍米斯特安全团队的这个工具。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-06-07
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-06-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/漏洞复现/" class="post-category" target="_blank">
-                                    漏洞复现
+                            <a href="/categories/CTF/" class="post-category" target="_blank">
+                                    CTF
                                 </a>
                             
                             
@@ -728,16 +791,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/墨者靶场WP/" target="_blank">
-                        <span class="chip bg-color">墨者靶场WP</span>
+                    <a href="/tags/CTF/" target="_blank">
+                        <span class="chip bg-color">CTF</span>
                     </a>
                     
-                    <a href="/tags/中间件漏洞/" target="_blank">
-                        <span class="chip bg-color">中间件漏洞</span>
-                    </a>
-                    
-                    <a href="/tags/漏洞复现/" target="_blank">
-                        <span class="chip bg-color">漏洞复现</span>
+                    <a href="/tags/MISC/" target="_blank">
+                        <span class="chip bg-color">MISC</span>
                     </a>
                     
                 </div>

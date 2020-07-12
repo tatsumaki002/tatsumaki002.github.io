@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tatsumaki.cn/"/>
-  <updated>2020-06-12T15:56:54.028Z</updated>
+  <updated>2020-07-12T16:18:56.903Z</updated>
   <id>https://tatsumaki.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>逻辑漏洞——任意用户密码重置相关</title>
+    <link href="https://tatsumaki.cn/2020/07/12/logic-re/"/>
+    <id>https://tatsumaki.cn/2020/07/12/logic-re/</id>
+    <published>2020-07-12T15:41:12.000Z</published>
+    <updated>2020-07-12T16:18:56.903Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="技术笔记" scheme="https://tatsumaki.cn/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="逻辑漏洞" scheme="https://tatsumaki.cn/tags/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/"/>
+    
+      <category term="SRC挖掘" scheme="https://tatsumaki.cn/tags/SRC%E6%8C%96%E6%8E%98/"/>
+    
+      <category term="技术笔记" scheme="https://tatsumaki.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
   
   <entry>
     <title>MISC题相关帮助工具</title>
