@@ -4,15 +4,14 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="MISC题相关帮助工具, CTF write up 随笔 渗透测试">
+    <meta name="keywords" content="RangeAMP, CTF write up 随笔 渗透测试">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="前言本着水文（划掉）想要开启其他能力的心思，去做了CTF的MISC相关的题。
-之前也有接触过MISC题型，大多题型涉及到crypto，不过比crypto简单多了就是。
-CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题目。
-
-凭借着经">
+    <meta name="description" content="前言RangeAMP是针对CDN的DOS攻击方式之一，算是比较前沿的研究了，特此记录。
+在RangeAMP中涉及到如下几个关键词：CDN，HTTP Range request，ddos，放大攻击
+关键词CDN第一个关键词：什么是CDN？
+C">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +19,7 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>MISC题相关帮助工具 | Tatsumaki&#39;Blog</title>
+    <title>RangeAMP | Tatsumaki&#39;Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -333,13 +332,13 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        MISC题相关帮助工具
+                        RangeAMP
                     </div>
                 </div>
             </div>
@@ -450,12 +449,12 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/CTF/" target="_blank">
-                            <span class="chip bg-color">CTF</span>
+                        <a href="/tags/DOS攻击/" target="_blank">
+                            <span class="chip bg-color">DOS攻击</span>
                         </a>
                         
-                        <a href="/tags/MISC/" target="_blank">
-                            <span class="chip bg-color">MISC</span>
+                        <a href="/tags/网络安全前沿/" target="_blank">
+                            <span class="chip bg-color">网络安全前沿</span>
                         </a>
                         
                     </div>
@@ -466,8 +465,8 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/CTF/" class="post-category" target="_blank">
-                            CTF
+                        <a href="/categories/DOS攻击/" class="post-category" target="_blank">
+                            DOS攻击
                         </a>
                         
                     </div>
@@ -478,7 +477,7 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-12
+                    2020-07-27
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -492,14 +491,14 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    164
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
                 
@@ -515,16 +514,22 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本着水文（划掉）想要开启其他能力的心思，去做了CTF的MISC相关的题。</p>
-<p>之前也有接触过MISC题型，大多题型涉及到crypto，不过比crypto简单多了就是。</p>
-<h2 id="CTF"><a href="#CTF" class="headerlink" title="CTF"></a>CTF</h2><p>在历经了无数道签到题让我喜笑颜开之后，碰到了这个题目。</p>
-<p><img src="1.png" alt="题目"></p>
-<p>凭借着经验，一眼就看出这是一个凯撒密码的加密。然后就要对凯撒密码进行破解。</p>
-<p>这里使用了米斯特安全团队的相关工具。</p>
-<p><img src="2.png" alt="工具界面"></p>
-<p>行了，找到了。</p>
-<p><img src="3.png" alt="flag"></p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本篇水文主要就介绍了米斯特安全团队的这个工具，无了。</p>
+                <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>RangeAMP是针对CDN的DOS攻击方式之一，算是比较前沿的研究了，特此记录。</p>
+<p>在RangeAMP中涉及到如下几个关键词：CDN，HTTP Range request，ddos，放大攻击</p>
+<h1 id="关键词"><a href="#关键词" class="headerlink" title="关键词"></a>关键词</h1><h2 id="CDN"><a href="#CDN" class="headerlink" title="CDN"></a>CDN</h2><p>第一个关键词：什么是CDN？</p>
+<p>CDN，内容分发网络。一般来说，CDN服务商会在全国各地建立CDN节点，用户访问时，就会访问距离最近的CDN节点，达到最快的访问效果。</p>
+<p>比如一个网站选择了CDN服务商，举例阿里云。那么阿里云会将网站上的部分内容缓存到所有CDN节点上。CDN节点最重要的功能就是缓存，但是CDN节点的存储空间不会无限大，因此需要使用动态缓存算法。即：如果一个用户访问web服务器上的某个资源，而CDN节点没有这个资源。那CDN节点就会向web服务器去请求，下发给用户的同时保存这个资源在CDN节点上。</p>
+<p>关键点在于：CDN节点的存储空间不会无限大，那么就需要用到缓存替换算法，把一些不需要用到的资源删除。不过这样一来，如果有用户去请求这个资源，需要反复从服务器请求资源，这就是攻击的必要条件。</p>
+<h2 id="HTTP-Range-Request-HTTP范围请求"><a href="#HTTP-Range-Request-HTTP范围请求" class="headerlink" title="HTTP Range Request HTTP范围请求"></a>HTTP Range Request HTTP范围请求</h2><p>对于没有使用CDN的web服务器而言，客户端请求多大的资源，下载时间就是多长，如果想要节省时间的话，除了提高网速的办法就是启用多线程。<br>如果使用HTTP通信的话，web服务器得开启对HTTP范围请求的支持，客户端发起请求的时候可以在数据包里添加这些东西：<br>Range: bytes=start-end<br>来指定下载的内容。<br>而网站在接收到相应信息之后，如果不支持，那么就会忽略，返回200<br>如果支持：<br>有效的话，返回206<br>无效或者超出边界，返回416</p>
+<h2 id="DDOS"><a href="#DDOS" class="headerlink" title="DDOS"></a>DDOS</h2><p>分布式拒绝服务。简单点，就是利用大量的资源去请求服务器，导致服务器停止响应。<br>DDOS主要分为两类：<br>1.资源消耗，比较典型的DOS攻击，针对tcp和udp协议的ddos都属于这一类。通过大量的请求消耗带宽，从而让服务器卡死。<br>服务消耗，这个是让服务端始终保持在处理高消耗型的业务的忙碌状态中，使得无法对正常业务进行响应。针对DNS、DHCP或者是HTTP服务器的大量请求都属于这类。</p>
+<h2 id="放大攻击"><a href="#放大攻击" class="headerlink" title="放大攻击"></a>放大攻击</h2><p>利用的是一种请求和响应流量不对称的方式来进行攻击，比如攻击者发送10k的请求，消耗掉的目标带宽就只有10k。但是如果有一台设备，攻击者发送10k的请求，却能得到1000k的应答，那么攻击者就可以利用这个设备实现放大攻击。应答请求源地址改为攻击目标，这样攻击目标就会受到放大攻击<br>也就是攻击者-&gt;请求设备-&gt;设备放大了1000k-&gt;请求服务器。这样服务器就消耗了1000k的带宽。</p>
+<h1 id="CDN和HTTP-Range-Request（HTTP范围请求）的结合"><a href="#CDN和HTTP-Range-Request（HTTP范围请求）的结合" class="headerlink" title="CDN和HTTP Range Request（HTTP范围请求）的结合"></a>CDN和HTTP Range Request（HTTP范围请求）的结合</h1><p>作者团队表示国内大厂的CDN基本都支持范围请求，而在转发上，基本为大致三个方式：<br>惰性：不进行任何修改直接转发<br>删除：直接删除Range header<br>扩展：将原请求的内容扩展到更大的字节范围中去。<br>而且大多数CDN倾向于后两种，因为客户端可能会继续请求相同资源的其他字节范围，这样优化了缓存，减少了访问延迟，并且防止了过多的回源请求。<br>回源请求：指CDN对源服务器的请求。<br>对于存在多个小范围的范围请求，或者是存在两个以上重叠范围的请求，RFC7233建议是h忽略、合并或者拒绝，然而有不少CDN忽略了这个建议。<br>这就导致了问题的产生。<br>如果CDN采用删除和扩展的策略的话，这两种策略会要求CDN从源服务器上检索比客户端请求内容更多的字节，CDN只返回，然后不考虑是否重叠，那么CDN发送的响应可能要比来自源服务器的响应大数千倍，这就导致了客户端到源服务器的流量差异。<br>这种流量差异会导致流量放大攻击，称为基于范围的放大攻击（RangeAMP）</p>
+<h1 id="攻击手法"><a href="#攻击手法" class="headerlink" title="攻击手法"></a>攻击手法</h1><blockquote>
+<p>第一种攻击路线：小字节范围攻击（SBR）<br>攻击者-&gt;CDN-&gt;源服务器<br>这个途径中，如果CDN采用了删除或者拓展策略处理范围请求，那么攻击者可以创建一个小字节的范围头发起RangeAMP攻击，这种攻击被称为小字节范围（SBR）攻击。<br>比如攻击者只向CDN请求了图片的一小部分，但是CDN会去像源站请求更多或者是整张图片的内容，从而产生更大的流量。然后攻击者尽可能去请求CDN缓存中不存在的内容，这样攻击者的一小部分流量，CDN会向源站请求更多的流量，这样就放大了流量。</p>
+</blockquote>
+<blockquote>
+<p>第二种攻击路线：重叠字范围攻击（OBR）<br>与SBR的原理不同，OBR攻击利用了多范围请求，类似的攻击方式曾经出现过，编号是CVE-2011-3192，攻击者通过向apache服务器发送多范围请求从而耗尽目标服务器的内存资源。<br>理论上，一旦带上N个range请求，那么apache服务器的压力就是n倍。<br>攻击者-&gt;FCDN-&gt;BCDN-&gt;源服务器<br>当一些CDN忽略了RFC协议时，就产生了这个漏洞。如果FCDN直接将请求转发给BCDN，而此时BCDN对请求不检查是否范围重叠，那BCDN就会起到一个类似放大的作用，去请求源服务器。而攻击者可以设置一个小型TCP接口，确认自己接收很少的数据，而不受放大攻击影响。</p>
+</blockquote>
 
             </div>
             <hr />
@@ -559,9 +564,9 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《MISC题相关帮助工具》
+                    《RangeAMP》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/06/12/water/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/07/27/dos/" property="cc:attributionName"
                rel="cc:attributionURL">
                 tatsumaki
             </a> 采用
@@ -602,7 +607,7 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
         repo: 'tatsumaki002.github.io',
         owner: 'tatsumaki',
         admin: "tatsumaki",
-        id: '2020/06/12/water/',
+        id: '2020/07/27/dos/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -623,9 +628,63 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2020/07/27/dos/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="RangeAMP">
+                        
+                        <span class="card-title">RangeAMP</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            对RangeAMP的一次笔记，大致记录了一些原理、攻击方式。
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-07-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/DOS攻击/" class="post-category" target="_blank">
+                                    DOS攻击
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DOS攻击/" target="_blank">
+                        <span class="chip bg-color">DOS攻击</span>
+                    </a>
+                    
+                    <a href="/tags/网络安全前沿/" target="_blank">
+                        <span class="chip bg-color">网络安全前沿</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2020/07/12/logic-re/">
                     <div class="card-image">
@@ -642,9 +701,9 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-07-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-07-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -670,52 +729,6 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
                     
                     <a href="/tags/技术笔记/" target="_blank">
                         <span class="chip bg-color">技术笔记</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/06/11/phpmyadmin1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="CVE-2018-12613复现 PHPMyAdmin后台文件包含">
-                        
-                        <span class="card-title">CVE-2018-12613复现 PHPMyAdmin后台文件包含</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            CVE-2018-12613，PHPMyadmin后台存在文件包含漏洞，以墨者学院在线靶场进行分析。
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-06-11
-                            </span>
-                        <span class="publish-author">
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/墨者靶场WP/" target="_blank">
-                        <span class="chip bg-color">墨者靶场WP</span>
-                    </a>
-                    
-                    <a href="/tags/漏洞复现/" target="_blank">
-                        <span class="chip bg-color">漏洞复现</span>
                     </a>
                     
                 </div>
