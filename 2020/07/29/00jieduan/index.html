@@ -4,15 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="MISC题相关帮助工具, CTF write up 随笔 渗透测试">
+    <meta name="keywords" content="关于上传中00截断的理解与分析, CTF write up 随笔 渗透测试">
     <meta name="baidu-site-verification" content="fmlEuI34ir">
     <meta name="google-site-verification" content="yCy2azpds5XSuGZvis6OuA-XIGF5GuGpYRAaGfD6o48">
     <meta name="360-site-verification" content="b7c11a830ef90fd1464ad6206bb7b6e7">
-    <meta name="description" content="前言本着水文（划掉）想要开启其他能力的心思，去做了CTF的MISC相关的题。
-之前也有接触过MISC题型，大多题型涉及到crypto，不过比crypto简单多了就是。
-CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题目。
+    <meta name="description" content="前言今天面试的时候，碰巧面试官问了相关00截断的问题。之前恰巧看到过一篇文章，是专门讲解与分析00截断的，原文地址在这儿。
 
-凭借着经">
+http://www.admintony.com/%E5%85%B3%E4%BA%8E%E4%B8%8A%E4%B">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -20,7 +18,7 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>MISC题相关帮助工具 | Tatsumaki&#39;Blog</title>
+    <title>关于上传中00截断的理解与分析 | Tatsumaki&#39;Blog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -333,13 +331,13 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        MISC题相关帮助工具
+                        关于上传中00截断的理解与分析
                     </div>
                 </div>
             </div>
@@ -450,12 +448,16 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/CTF/" target="_blank">
-                            <span class="chip bg-color">CTF</span>
+                        <a href="/tags/文件上传/" target="_blank">
+                            <span class="chip bg-color">文件上传</span>
                         </a>
                         
-                        <a href="/tags/MISC/" target="_blank">
-                            <span class="chip bg-color">MISC</span>
+                        <a href="/tags/00截断/" target="_blank">
+                            <span class="chip bg-color">00截断</span>
+                        </a>
+                        
+                        <a href="/tags/原理分析/" target="_blank">
+                            <span class="chip bg-color">原理分析</span>
                         </a>
                         
                     </div>
@@ -466,8 +468,8 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/CTF/" class="post-category" target="_blank">
-                            CTF
+                        <a href="/categories/文件上传/" class="post-category" target="_blank">
+                            文件上传
                         </a>
                         
                     </div>
@@ -478,7 +480,7 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-12
+                    2020-07-29
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -492,14 +494,14 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    164
+                    869
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
                 
@@ -515,16 +517,42 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本着水文（划掉）想要开启其他能力的心思，去做了CTF的MISC相关的题。</p>
-<p>之前也有接触过MISC题型，大多题型涉及到crypto，不过比crypto简单多了就是。</p>
-<h2 id="CTF"><a href="#CTF" class="headerlink" title="CTF"></a>CTF</h2><p>在历经了无数道签到题让我喜笑颜开之后，碰到了这个题目。</p>
-<p><img src="1.png" alt="题目"></p>
-<p>凭借着经验，一眼就看出这是一个凯撒密码的加密。然后就要对凯撒密码进行破解。</p>
-<p>这里使用了米斯特安全团队的相关工具。</p>
-<p><img src="2.png" alt="工具界面"></p>
-<p>行了，找到了。</p>
-<p><img src="3.png" alt="flag"></p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>本篇水文主要就介绍了米斯特安全团队的这个工具，无了。</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>今天面试的时候，碰巧面试官问了相关00截断的问题。之前恰巧看到过一篇文章，是专门讲解与分析00截断的，原文地址在这儿。</p>
+<blockquote>
+<p><a href="http://www.admintony.com/%E5%85%B3%E4%BA%8E%E4%B8%8A%E4%BC%A0%E4%B8%AD%E7%9A%8400%E6%88%AA%E6%96%AD%E5%88%86%E6%9E%90.html" target="_blank" rel="noopener">http://www.admintony.com/%E5%85%B3%E4%BA%8E%E4%B8%8A%E4%BC%A0%E4%B8%AD%E7%9A%8400%E6%88%AA%E6%96%AD%E5%88%86%E6%9E%90.html</a></p>
+</blockquote>
+<p>虽然看是看过，当时也稍微记录了一些。但是回答起来也不知道是紧张还是什么原因，答得语无伦次。</p>
+<p>于是重新再看一遍，再做一次记录。</p>
+<h2 id="00截断用在哪儿"><a href="#00截断用在哪儿" class="headerlink" title="00截断用在哪儿"></a>00截断用在哪儿</h2><p>初学者刚用00截断的时候，往往会按照网上教程，上传如1.php%00a.jpg这种形式绕过00截断。但有时候会成功，有时候会失败，为什么呢？</p>
+<p>先说结论：除了php配置的那个解析漏洞之外，正经使用%00截断绕过应该是放在上传文件路径后，而非文件名处。</p>
+<h2 id="再说原理"><a href="#再说原理" class="headerlink" title="再说原理"></a>再说原理</h2><p>00截断原理，为什么能做到00截断？</p>
+<p>答：0x00是字符串的结束标识符，攻击者通过手动添加字符串标识符的方式，将00后面内容截断。但是00后面的东西又能帮助我们绕过文件检测。</p>
+<p>00截断自然是存在限制，要求GPC处于关闭状态，且php版本小于5.3.29才可利用。</p>
+<h2 id="为什么00截断用在上传后文件目录"><a href="#为什么00截断用在上传后文件目录" class="headerlink" title="为什么00截断用在上传后文件目录"></a>为什么00截断用在上传后文件目录</h2><p>在文件名中构造00截断，比如1.php%001.jpg。在程序提取后缀名的时候，遇到%00就认为结束了。这个时候，他提取到的后缀名还是.php，然后.php被限制上传，所以绕过失败。</p>
+<p>附上上传文件后缀名检测的代码</p>
+<pre><code>$uploaded_name = $_FILES[ &#39;file&#39; ][ &#39;name&#39; ];
+$uploaded_ext  = substr( $uploaded_name, strrpos( $uploaded_name, &#39;.&#39; ) + 1); // 提取上传文件后缀
+$target_name = md5( uniqid() . $uploaded_name ) . &#39;.&#39; . $uploaded_ext; // 对上传文件进行重命名
+if( ( strtolower( $uploaded_ext ) == &quot;jpg&quot; || strtolower( $uploaded_ext ) == &quot;jpeg&quot; || strtolower( $uploaded_ext ) == &quot;png&quot; )) 
+{  
+    move_uploaded_file($_FILES[&quot;file&quot;][&quot;tmp_name&quot;],
+    $dir . $target_name); // 将临时文件移动到指定目录
+    $result = $dir . $target_name;
+    echo &quot;Stored in: $result&quot;; 
+}
+else{
+    echo &quot;Invalid file&quot;;
+}</code></pre><h2 id="正确用法"><a href="#正确用法" class="headerlink" title="正确用法"></a>正确用法</h2><p>在数据包中，含有上传后文件目录的情况才可使用。比如在数据包中存在path：/uploads/</p>
+<p>这种情况，可以这样上传/uploads/1.php%00</p>
+<p>这样一来，程序提取后缀名的时候就会合法，然后拼接路径与文件名。这个时候的拼接结果应该就是：/uploads/1.php%00/xxxxxxxx.php</p>
+<p>于是移动文件的时候，就会把00后面的东西视作不存在，结果就变成了/uploads/1.php，从而getshell。</p>
+<h2 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h2><p>为什么网上有的%00不用改动，有的却要进行urldecode呢？</p>
+<p>因为在上传表单中存在一个enctype的属性，而且在enctype=”multipart/form-data”这里，是不会对表单中的数据进行解码的。</p>
+<p>而path（路径）又大多存放在表单中，所以需要对%00进行urldecode</p>
+<p>简单粗暴点说，在碰到multipart/from-data的时候，就需要进行urldecode 了。</p>
+<p>为什么有的%00不用改动呢？</p>
+<p>因为path也有可能直接存在url、cookie里边，在提交数据的时候，浏览器会对数据进行url编码。到服务器，则会对数据进行一次解码操作。</p>
+<p>简单些说，path在url、cookie或者上传方式不是multipart/from-data的时候，就不用进行url编码</p>
 
             </div>
             <hr />
@@ -559,9 +587,9 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《MISC题相关帮助工具》
+                    《关于上传中00截断的理解与分析》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/06/12/water/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2020/07/29/00jieduan/" property="cc:attributionName"
                rel="cc:attributionURL">
                 tatsumaki
             </a> 采用
@@ -602,7 +630,7 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
         repo: 'tatsumaki002.github.io',
         owner: 'tatsumaki',
         admin: "tatsumaki",
-        id: '2020/06/12/water/',
+        id: '2020/07/29/00jieduan/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -623,53 +651,57 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/12/logic-re/">
+                <a href="/2020/07/29/00jieduan/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="逻辑漏洞——任意用户密码重置相关">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="关于上传中00截断的理解与分析">
                         
-                        <span class="card-title">逻辑漏洞——任意用户密码重置相关</span>
+                        <span class="card-title">关于上传中00截断的理解与分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            从freebuf大佬文章中自个儿记录下来的笔记
+                            前言今天面试的时候，碰巧面试官问了相关00截断的问题。之前恰巧看到过一篇文章，是专门讲解与分析00截断的，原文地址在这儿。
+
+http://www.admintony.com/%E5%85%B3%E4%BA%8E%E4%B8%8A%E4%B
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2020-07-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-07-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/技术笔记/" class="post-category" target="_blank">
-                                    技术笔记
+                            <a href="/categories/文件上传/" class="post-category" target="_blank">
+                                    文件上传
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/逻辑漏洞/" target="_blank">
-                        <span class="chip bg-color">逻辑漏洞</span>
+                    <a href="/tags/文件上传/" target="_blank">
+                        <span class="chip bg-color">文件上传</span>
                     </a>
                     
-                    <a href="/tags/SRC挖掘/" target="_blank">
-                        <span class="chip bg-color">SRC挖掘</span>
+                    <a href="/tags/00截断/" target="_blank">
+                        <span class="chip bg-color">00截断</span>
                     </a>
                     
-                    <a href="/tags/技术笔记/" target="_blank">
-                        <span class="chip bg-color">技术笔记</span>
+                    <a href="/tags/原理分析/" target="_blank">
+                        <span class="chip bg-color">原理分析</span>
                     </a>
                     
                 </div>
@@ -683,26 +715,32 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/11/phpmyadmin1/">
+                <a href="/2020/07/27/dos/">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="RangeAMP">
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="CVE-2018-12613复现 PHPMyAdmin后台文件包含">
-                        
-                        <span class="card-title">CVE-2018-12613复现 PHPMyAdmin后台文件包含</span>
+                        <span class="card-title">RangeAMP</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            CVE-2018-12613，PHPMyadmin后台存在文件包含漏洞，以墨者学院在线靶场进行分析。
+                            对RangeAMP的一次笔记，大致记录了一些原理、攻击方式。
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-06-11
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2020-07-27
                             </span>
                         <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/DOS攻击/" class="post-category" target="_blank">
+                                    DOS攻击
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -710,12 +748,12 @@ CTF在历经了无数道签到题让我喜笑颜开之后，碰到了这个题�
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/墨者靶场WP/" target="_blank">
-                        <span class="chip bg-color">墨者靶场WP</span>
+                    <a href="/tags/DOS攻击/" target="_blank">
+                        <span class="chip bg-color">DOS攻击</span>
                     </a>
                     
-                    <a href="/tags/漏洞复现/" target="_blank">
-                        <span class="chip bg-color">漏洞复现</span>
+                    <a href="/tags/网络安全前沿/" target="_blank">
+                        <span class="chip bg-color">网络安全前沿</span>
                     </a>
                     
                 </div>
