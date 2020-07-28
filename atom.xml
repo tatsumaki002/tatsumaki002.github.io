@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tatsumaki.cn/"/>
-  <updated>2020-07-27T14:01:53.623Z</updated>
+  <updated>2020-07-28T16:49:04.799Z</updated>
   <id>https://tatsumaki.cn/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>关于上传中00截断的理解与分析</title>
+    <link href="https://tatsumaki.cn/2020/07/29/00jieduan/"/>
+    <id>https://tatsumaki.cn/2020/07/29/00jieduan/</id>
+    <published>2020-07-28T16:17:44.000Z</published>
+    <updated>2020-07-28T16:49:04.799Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="文件上传" scheme="https://tatsumaki.cn/categories/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+    
+      <category term="文件上传" scheme="https://tatsumaki.cn/tags/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
+    
+      <category term="00截断" scheme="https://tatsumaki.cn/tags/00%E6%88%AA%E6%96%AD/"/>
+    
+      <category term="原理分析" scheme="https://tatsumaki.cn/tags/%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90/"/>
+    
+  </entry>
   
   <entry>
     <title>RangeAMP</title>
@@ -183,9 +213,9 @@
       <category term="漏洞验证" scheme="https://tatsumaki.cn/categories/%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81/"/>
     
     
-      <category term="漏洞验证" scheme="https://tatsumaki.cn/tags/%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="DOS攻击" scheme="https://tatsumaki.cn/tags/DOS%E6%94%BB%E5%87%BB/"/>
+    
+      <category term="漏洞验证" scheme="https://tatsumaki.cn/tags/%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   
