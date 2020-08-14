@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tatsumaki.cn/"/>
-  <updated>2020-07-28T16:49:04.799Z</updated>
+  <updated>2020-08-14T14:17:35.365Z</updated>
   <id>https://tatsumaki.cn/</id>
   
   <author>
@@ -17,11 +17,43 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>一次笔记记录</title>
+    <link href="https://tatsumaki.cn/2020/08/14/write/"/>
+    <id>https://tatsumaki.cn/2020/08/14/write/</id>
+    <published>2020-08-14T13:53:39.000Z</published>
+    <updated>2020-08-14T14:17:35.365Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;大佬文章链接如下，针对其中一些技术点做了笔记：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="技术笔记" scheme="https://tatsumaki.cn/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="技术笔记" scheme="https://tatsumaki.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="JWT" scheme="https://tatsumaki.cn/tags/JWT/"/>
+    
+      <category term="shell" scheme="https://tatsumaki.cn/tags/shell/"/>
+    
+  </entry>
+  
+  <entry>
     <title>关于上传中00截断的理解与分析</title>
     <link href="https://tatsumaki.cn/2020/07/29/00jieduan/"/>
     <id>https://tatsumaki.cn/2020/07/29/00jieduan/</id>
     <published>2020-07-28T16:17:44.000Z</published>
-    <updated>2020-07-28T16:49:04.799Z</updated>
+    <updated>2020-08-14T13:57:34.089Z</updated>
     
     <summary type="html">
     
@@ -96,11 +128,11 @@
       <category term="技术笔记" scheme="https://tatsumaki.cn/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="技术笔记" scheme="https://tatsumaki.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
+    
       <category term="逻辑漏洞" scheme="https://tatsumaki.cn/tags/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E/"/>
     
       <category term="SRC挖掘" scheme="https://tatsumaki.cn/tags/SRC%E6%8C%96%E6%8E%98/"/>
-    
-      <category term="技术笔记" scheme="https://tatsumaki.cn/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
@@ -213,9 +245,9 @@
       <category term="漏洞验证" scheme="https://tatsumaki.cn/categories/%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81/"/>
     
     
-      <category term="DOS攻击" scheme="https://tatsumaki.cn/tags/DOS%E6%94%BB%E5%87%BB/"/>
-    
       <category term="漏洞验证" scheme="https://tatsumaki.cn/tags/%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81/"/>
+    
+      <category term="DOS攻击" scheme="https://tatsumaki.cn/tags/DOS%E6%94%BB%E5%87%BB/"/>
     
   </entry>
   
