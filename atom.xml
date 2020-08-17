@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tatsumaki.cn/"/>
-  <updated>2020-08-14T14:18:56.475Z</updated>
+  <updated>2020-08-17T11:59:17.451Z</updated>
   <id>https://tatsumaki.cn/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://tatsumaki.cn/2020/08/14/write/"/>
     <id>https://tatsumaki.cn/2020/08/14/write/</id>
     <published>2020-08-14T13:53:39.000Z</published>
-    <updated>2020-08-14T14:18:56.475Z</updated>
+    <updated>2020-08-17T11:59:17.451Z</updated>
     
     <summary type="html">
     
@@ -245,9 +245,9 @@
       <category term="漏洞验证" scheme="https://tatsumaki.cn/categories/%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81/"/>
     
     
-      <category term="漏洞验证" scheme="https://tatsumaki.cn/tags/%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81/"/>
-    
       <category term="DOS攻击" scheme="https://tatsumaki.cn/tags/DOS%E6%94%BB%E5%87%BB/"/>
+    
+      <category term="漏洞验证" scheme="https://tatsumaki.cn/tags/%E6%BC%8F%E6%B4%9E%E9%AA%8C%E8%AF%81/"/>
     
   </entry>
   

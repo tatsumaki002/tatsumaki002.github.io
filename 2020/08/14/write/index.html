@@ -532,10 +532,9 @@ hashcat --attack-mode 0 hashpasswd se_passwd.txt --show</code></pre><p>想了想
 <blockquote>
 <p>注：有py脚本同样有这个功能，名字叫pydictor，在github上有。</p>
 </blockquote>
-<h1 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h1><p>作者在上传功能中,仔细审查报文后发现存在token。<br>![token格式]（1.png）<br>可以看到，同时存在token和cookie两个字段。一般token用于身份验证,或者是防CSRF。<br>如果是身份验证,那没必要和cookie同时存在；而如果是防CSRF,一般是hash值才对,而不是图片中三段式的base64编码.于是作者将每段解码。发现是JWT格式</p>
-<p>##什么是JWT<br>JWT是用来替代cookie的一种身份认证方式.<br>服务端对JWT处理不好的话,很容易造成垂直越权.但是JWT的签名和是对信息头和数据两部分结合密钥进行哈希生成,服务端通过签名保证数据的完整性和有效性.</p>
-<p>##攻击JWT常见的有三种手法:</p>
-<blockquote>
+<h1 id="JWT"><a href="#JWT" class="headerlink" title="JWT"></a>JWT</h1><p>作者在上传功能中,仔细审查报文后发现存在token。<br><img src="1.png" alt="token格式"><br>可以看到，同时存在token和cookie两个字段。一般token用于身份验证,或者是防CSRF。<br>如果是身份验证,那没必要和cookie同时存在；而如果是防CSRF,一般是hash值才对,而不是图片中三段式的base64编码.于是作者将每段解码。发现是JWT格式</p>
+<h2 id="什么是JWT"><a href="#什么是JWT" class="headerlink" title="什么是JWT"></a>什么是JWT</h2><p>JWT是用来替代cookie的一种身份认证方式.<br>服务端对JWT处理不好的话,很容易造成垂直越权.但是JWT的签名和是对信息头和数据两部分结合密钥进行哈希生成,服务端通过签名保证数据的完整性和有效性.</p>
+<h2 id="攻击JWT常见的有三种手法"><a href="#攻击JWT常见的有三种手法" class="headerlink" title="攻击JWT常见的有三种手法:"></a>攻击JWT常见的有三种手法:</h2><blockquote>
 <p>1.未校验签名<br>未校验签名,就是有些服务端没对签名进行校验,所以尝试修改token之后直接发给服务端,然后查看结果.</p>
 </blockquote>
 <blockquote>
@@ -551,7 +550,7 @@ hashcat --attack-mode 0 hashpasswd se_passwd.txt --show</code></pre><p>想了想
 <p>另外,任意文件上传攻击，遇到服务端扩展名白名单的场景，除了常规的解析漏洞手法外，还可能关注本地文件包含漏洞（LFI），以及 HTTP 参数污染漏洞（HPP），特别是 HPP，在突破白名单限制时，很有杀伤力。</p>
 </blockquote>
 <h1 id="反弹shell"><a href="#反弹shell" class="headerlink" title="反弹shell"></a>反弹shell</h1><p>反弹shell失败的话,原因一般有以下几点:<br>反弹命令不存在、禁止了出口流量 、限定向外访问端口、流量审查，对这四点依次做判断</p>
-<p>##反弹命令是否存在<br>判断命令是否存在,可以用whereis命令查看相关命令是否存在:<br>比如 whereis nc bash python php exec<br><img src="2.png" alt="判断命令是否存在"><br>这张图,就是说明PHP不存在,其他反弹命令都可使用.</p>
+<h2 id="反弹命令是否存在"><a href="#反弹命令是否存在" class="headerlink" title="反弹命令是否存在"></a>反弹命令是否存在</h2><p>判断命令是否存在,可以用whereis命令查看相关命令是否存在:<br>比如 whereis nc bash python php exec<br><img src="2.png" alt="判断命令是否存在"><br>这张图,就是说明PHP不存在,其他反弹命令都可使用.</p>
 <blockquote>
 <p>常见的反弹方法</p>
 </blockquote>
