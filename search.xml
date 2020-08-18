@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>docker加速相关配置</title>
+      <link href="/2020/08/18/docker-pull/"/>
+      <url>/2020/08/18/docker-pull/</url>
+      
+        <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>复现漏洞的时候，docker拉镜像会方便很多。<br>Kali好像是自带了docker和docker-compose，要不然就是我之前装过了。这个已经忘记了，先前踩的坑也不太记得。<br>为了防止这种事情再次发生，做一个记录方便查阅<br>这次的坑主要集中在docekr pull上，直接docekr pull的时候，提示 Error response from daemon: Get。大意就是连接不到，网不好。Ping了一下google，果然无法连接。<br>所以就需要对docker镜像进行一个加速，这边我个人尝试了三种方法。</p><h2 id="配置hosts"><a href="#配置hosts" class="headerlink" title="配置hosts"></a>配置hosts</h2><blockquote><p>要求：kali为虚拟机，且为nat模式，主机拥有ss。</p></blockquote><p>简单点讲就是让你的虚拟机能看到外边的世界。<br>在Kali中配置网络代理为手动，然后内容设置成物理机的IP地址。<br><img src="1.png" alt="ip"><br>端口为ss的端口，我设置的1080<br><img src="2.png" alt="port"><br>修改代理<br><img src="3.png" alt="proxy"><br>做完这些后，在终端输入命令：</p><pre><code>Dig @114.114.114.114 registry-1.docker.io </code></pre><p>在获取到的内容中，找到;; Answer Section:<br>从里面挑选一个ip，接着编辑/etc/hosts文件，将ip和registry-1.docker.io绑定。物理机的ss记得开启“允许来自局域网的连接”。<br>重启docker：service docker restart</p><h2 id="配置daemon-json文件"><a href="#配置daemon-json文件" class="headerlink" title="配置daemon.json文件"></a>配置daemon.json文件</h2><p>在/etc/docker下找到daemon.json，没有就创建一个，然后往里面添加国内的镜像。</p><pre><code>{&quot;registry-mirrors&quot;: [&quot;http://hub-mirror.c.163.com&quot;, &quot;https://registry.docker-cn.com&quot;]}</code></pre><p>一般的镜像源选择这三个：</p><blockquote><p>网易  <a href="http://hub-mirror.c.163.com" target="_blank" rel="noopener">http://hub-mirror.c.163.com</a><br>中国科技大学      <a href="https://docker.mirrors.ustc.edu.cn" target="_blank" rel="noopener">https://docker.mirrors.ustc.edu.cn</a><br>阿里云    <a href="https://pee6w651.mirror.aliyuncs.com" target="_blank" rel="noopener">https://pee6w651.mirror.aliyuncs.com</a></p></blockquote><p>然后重启docker服务：<br>Systemctl daemon-reload<br>Systemtcl restart docker<br>这里得使用这个命令重载重启，直接service命令不行，原因不太清楚。</p><blockquote><p>注：如果只用一个源加速，逗号记得删除，不然会报错。</p></blockquote><h2 id="配置daocloud加速"><a href="#配置daocloud加速" class="headerlink" title="配置daocloud加速"></a>配置daocloud加速</h2><blockquote><p>要求：拥有一个daocloud的账号（不确定，也许可以直接访问就有了。）<br>访问链接,加速器页面地址：<a href="https://www.daocloud.io/mirror#accelerator-doc" target="_blank" rel="noopener">https://www.daocloud.io/mirror#accelerator-doc</a><br>在页面最下方有自动执行的脚本，先试试行不行。不行的话再手动添加。<br>添加方式可以参考帮助文档，很全面。<br>这里记录两个linux的方法。<br>先使用docker –version查看版本，如果在1.12或者更高版本的话，直接在/etc/docker下生成daemon.json，和第二步一样，不过链接就换成页面获得的链接</p><pre><code>{    &quot;registry-mirrors&quot;: [        &quot;加速地址&quot;    ],    &quot;insecure-registries&quot;: []}</code></pre><p>然后重启。<br>如果版本在1.8-1.11之间的话，先要找到docker的配置文件在哪，docker官方文档一般有。<br>然后在配置文件的docker_opts加入–registry-mirror=加速地址<br>重启:service docker restart<br>1.8以下的就升升级，或者用之前的方法吧。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> docker </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>一次笔记记录</title>
       <link href="/2020/08/14/write/"/>
       <url>/2020/08/14/write/</url>
