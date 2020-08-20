@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://tatsumaki.cn/"/>
-  <updated>2020-08-18T14:59:42.256Z</updated>
+  <updated>2020-08-20T17:12:06.097Z</updated>
   <id>https://tatsumaki.cn/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>redis未授权getshell合集</title>
+    <link href="https://tatsumaki.cn/2020/08/20/redis/"/>
+    <id>https://tatsumaki.cn/2020/08/20/redis/</id>
+    <published>2020-08-20T15:32:54.000Z</published>
+    <updated>2020-08-20T17:12:06.097Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="未授权访问" scheme="https://tatsumaki.cn/categories/%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/"/>
+    
+      <category term="漏洞复现" scheme="https://tatsumaki.cn/categories/%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+      <category term="getshell" scheme="https://tatsumaki.cn/categories/%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/getshell/"/>
+    
+    
+      <category term="漏洞复现" scheme="https://tatsumaki.cn/tags/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    
+      <category term="未授权访问" scheme="https://tatsumaki.cn/tags/%E6%9C%AA%E6%8E%88%E6%9D%83%E8%AE%BF%E9%97%AE/"/>
+    
+      <category term="getshell" scheme="https://tatsumaki.cn/tags/getshell/"/>
+    
+  </entry>
   
   <entry>
     <title>docker加速相关配置</title>
